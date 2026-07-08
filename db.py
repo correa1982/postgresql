@@ -52,7 +52,6 @@ class ConnectionPool:
             "database": p["database"],
             "port": p["port"],
             "cursor_factory": psycopg2.extras.RealDictCursor,
-            "autocommit": False,
             "connect_timeout": 10
         }
         
