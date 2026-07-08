@@ -192,6 +192,7 @@ def init_db():
             pass
 
     conn = get_db()
+    conn.conn.autocommit = True
     
     # Define tables
     conn.execute("""
@@ -837,7 +838,7 @@ def init_db():
         
     # Migration for configuracion valor to TEXT
     try:
-        conn.execute("ALTER TABLE configuracion MODIFY COLUMN valor TEXT")
+        conn.execute("ALTER TABLE configuracion ALTER COLUMN valor TYPE TEXT")
     except Exception as e:
         print("Migration configuracion valor error:", e)
         pass
@@ -1176,5 +1177,6 @@ def init_db():
             try: conn.execute(sql)
             except: pass
 
+    conn.conn.autocommit = False
     conn.commit()
     conn.close()
