@@ -197,7 +197,7 @@ def init_db():
     # Define tables
     conn.execute("""
         CREATE TABLE IF NOT EXISTS usuarios (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             nombre TEXT NOT NULL,
             identificacion VARCHAR UNIQUE NOT NULL,
             registro_medico TEXT NOT NULL
@@ -205,7 +205,7 @@ def init_db():
     """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS pacientes (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             identificacion_paciente TEXT NOT NULL,
             tipo_documento TEXT NOT NULL,
             primer_apellido TEXT NOT NULL,
@@ -281,7 +281,7 @@ def init_db():
     """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS eventos (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha_inicio TEXT,
             hora_inicio TEXT,
             fecha_finalizacion TEXT,
@@ -303,7 +303,7 @@ def init_db():
     """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS atencion_vehiculo (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             consecutivo INTEGER,
             pais TEXT,
             departamento TEXT,
@@ -329,7 +329,7 @@ def init_db():
     """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS atencion_colectiva (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha_inicio TEXT NOT NULL,
             hora_inicio TEXT,
             fecha_finalizacion TEXT,
@@ -349,7 +349,7 @@ def init_db():
     """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS preoperacional (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha TEXT NOT NULL,
             hora TEXT,
             placa_vehiculo TEXT,
@@ -380,7 +380,7 @@ def init_db():
     """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS checklist_tam (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha TEXT NOT NULL,
             hora TEXT,
             placa TEXT,
@@ -402,7 +402,7 @@ def init_db():
     """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS checklist_tab (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha TEXT NOT NULL,
             hora TEXT,
             placa TEXT,
@@ -424,7 +424,7 @@ def init_db():
     """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS checklist_avanzada (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha TEXT NOT NULL,
             hora TEXT,
             evento TEXT,
@@ -441,7 +441,7 @@ def init_db():
     """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS checklist_pasb (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha TEXT NOT NULL,
             hora TEXT,
             ubicacion TEXT,
@@ -461,7 +461,7 @@ def init_db():
     """)
     conn.execute("""
         CREATE TABLE IF NOT EXISTS checklist_pasm (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha TEXT NOT NULL,
             hora TEXT,
             ubicacion TEXT,
@@ -483,7 +483,7 @@ def init_db():
     
     conn.execute("""
         CREATE TABLE IF NOT EXISTS checklist_equipos (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha TEXT NOT NULL,
             hora TEXT,
             grupo_equipos TEXT,
@@ -499,7 +499,7 @@ def init_db():
     
     conn.execute("""
         CREATE TABLE IF NOT EXISTS calif_atencion (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha TEXT NOT NULL,
             hora TEXT,
             primer_nombre TEXT,
@@ -523,7 +523,7 @@ def init_db():
 
     conn.execute("""
         CREATE TABLE IF NOT EXISTS segur_paciente (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             fecha TEXT NOT NULL,
             hora TEXT,
             primer_nombre TEXT,
@@ -544,7 +544,7 @@ def init_db():
     
     conn.execute("""
         CREATE TABLE IF NOT EXISTS checklist_items (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             tipo_checklist TEXT NOT NULL,
             categoria TEXT NOT NULL,
             identificador TEXT NOT NULL,
@@ -556,7 +556,7 @@ def init_db():
     
     conn.execute("""
         CREATE TABLE IF NOT EXISTS checklist_categorias (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             tipo_checklist TEXT NOT NULL,
             nombre TEXT NOT NULL,
             activo INTEGER DEFAULT 1
@@ -565,7 +565,7 @@ def init_db():
     
     conn.execute("""
         CREATE TABLE IF NOT EXISTS vehiculos (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             tipo TEXT NOT NULL,
             placa VARCHAR NOT NULL UNIQUE,
             marca TEXT,
@@ -581,7 +581,7 @@ def init_db():
     
     conn.execute("""
         CREATE TABLE IF NOT EXISTS aseguradoras (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             nombre VARCHAR NOT NULL UNIQUE,
             activo INTEGER DEFAULT 1
         )
@@ -589,7 +589,7 @@ def init_db():
 
     conn.execute("""
         CREATE TABLE IF NOT EXISTS aseguradoras_soat (
-            id INTEGER PRIMARY KEY SERIAL,
+            id SERIAL PRIMARY KEY,
             nombre VARCHAR NOT NULL UNIQUE,
             activo INTEGER DEFAULT 1
         )
