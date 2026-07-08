@@ -51,7 +51,7 @@ class ConnectionPool:
             "password": p["password"],
             "database": p["database"],
             "port": p["port"],
-            "cursorclass": pymysql.cursors.DictCursor,
+            "cursor_factory": psycopg2.extras.RealDictCursor,
             "autocommit": False,
             "connect_timeout": 10
         }
